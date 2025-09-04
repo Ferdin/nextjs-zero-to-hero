@@ -57,7 +57,31 @@ The course is designed for developers who want to **master Next.js (App Router, 
 ### 🎯 Final Project
 - Full-stack app with Next.js, Prisma, Auth, and Deployment
 
+
 ---
 
-## 📂 Repository Structure
+## 🛠️ Tech Stack
+
+- [Next.js 15 (2025)](https://nextjs.org/) — App Router
+- [React 19](https://react.dev/)  
+- [TypeScript](https://www.typescriptlang.org/)  
+- [TailwindCSS](https://tailwindcss.com/) + [Shadcn UI](https://ui.shadcn.com/)  
+- [Prisma ORM](https://www.prisma.io/) + PostgreSQL  
+- [NextAuth.js](https://next-auth.js.org/)  
+- Deployment: [Vercel](https://vercel.com/)  
+
+---
+
+## 🤝 Contributing
+
+This repo is part of a **teaching course**, but feel free to:
+- ⭐ Star the repo if you find it useful
+- Fork and practice on your own
+- Submit pull requests for improvements
+
+---
+
+## 📜 License
+
+MIT License © 2025 Ferdin Norbert  
 
