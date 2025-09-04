@@ -14,7 +14,6 @@ The course is designed for developers who want to **master Next.js (App Router, 
 - Introduction to Next.js & React refresh
 - Setting up your environment
 - First Next.js app with the App Router
-- Pages, layouts, and components
 
 ### 🟦 Week 2: TypeScript for React
 
