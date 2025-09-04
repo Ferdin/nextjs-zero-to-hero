@@ -1,0 +1,56 @@
+# -------------------------
+# Node.js / Next.js
+# -------------------------
+node_modules/
+.next/
+out/
+dist/
+build/
+.cache/
+
+# Typescript
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env*.local
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+# Dependency directories inside weekly folders
+week-*/node_modules/
+week-*/.next/
+week-*/out/
+week-*/dist/
+week-*/build/
+week-*/.cache/
+
+# Optional: ignore test coverage outputs
+coverage/
+*.lcov
+
+# Optional: ignore project-specific dumps
+*.zip
+*.tar
+*.tgz
+*.tmp
+*.bak
+*.backup
+
+# If you create tutorial PDFs/slides locally
+*.pdf
+*.pptx

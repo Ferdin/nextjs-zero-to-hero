@@ -1,0 +1,38 @@
+1. Next.js is a React framework.
+
+2. React recommends using a framework like Next.js to build applications, because these frameworks support all the features required to deploy and scale apps in production.
+
+3. If you were to build a React app from scratch, you would need to follow these steps:
+
+Step 1: Set up a build tool.
+You need a build tool for your code, such as Vite, Parcel, or Rsbuild. These tools provide features to package and run source code, offer a development server for local development, and include a build command to deploy your app to production.
+
+Step 2: Implement common application patterns.
+
+Routing → Determines what content or page to serve when a user visits a particular URL. This includes handling nested routes, route parameters, and query parameters. React Router is an example of a library often used alongside build tools like Vite.
+
+Data Fetching → Applications often need to fetch data from a server and handle it according to their needs. TanStack Query (formerly React Query) is a widely used library for this purpose.
+
+Code Splitting → Code-splitting breaks your app into smaller bundles (called “chunks”) that can be loaded on demand. This improves performance by reducing the amount of code loaded at once.
+
+Step 3: Implement rendering patterns.
+Build tools only support single-page apps (SPAs) by default. To improve performance, you need to implement different rendering strategies. There are seven main rendering patterns:
+
+Client-Side Rendering (CSR)
+
+Server-Side Rendering (SSR)
+
+Static Site Generation (SSG)
+
+Incremental Static Regeneration (ISR)
+
+Streaming & React Server Components (RSC)
+
+Edge-Side Rendering (ESR)
+
+Progressive Hydration / Islands Architecture
+
+We will learn more about these in the next lecture.
+
+4. Now, imagine a framework that handles all this heavy lifting for you, enabling you to build applications without worrying about every detail above. That’s Next.js.
+Next.js is an all-in-one solution for building modern, scalable, and production-ready websites.

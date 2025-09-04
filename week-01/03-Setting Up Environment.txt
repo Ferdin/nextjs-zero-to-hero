@@ -1,0 +1,65 @@
+If you haven’t installed Node.js on your computer, go to this link and download it:
+
+👉 https://nodejs.org/en/download/
+
+Once installed, check if it was successful by opening the Command Prompt (or terminal) and typing:
+
+node --version
+
+
+If you see a version number, the installation was successful.
+This installation also comes with npm (Node Package Manager) and npx (a package runner tool). We’ll use npx to create our Next.js app.
+
+Install a Code Editor
+
+The next tool you need is a code editor.
+
+I recommend Visual Studio Code (VS Code) since it comes with many features and extensions that make development easier and faster.
+
+👉 Download it here: https://code.visualstudio.com/
+
+Create Your First Next.js App
+
+Create a new directory anywhere on your computer.
+
+Open it in VS Code.
+
+Inside VS Code, open the integrated terminal and run:
+
+npx create-next-app@15.5.2 my-first-next-app
+
+
+When prompted, choose the following options:
+
+TypeScript → Yes
+
+ESLint → Yes
+
+Tailwind CSS → Yes
+
+src/ → Yes
+
+App Router → Yes
+
+Turbopack → Yes
+
+Import alias → No (this option allows you to create shortcuts for imports, e.g., @/components/Button instead of ../../components/Button. We’ll keep it simple for now.)
+
+The installation may take a few minutes.
+
+Run Your Next.js App
+
+Navigate into your new project:
+
+cd my-first-next-app
+
+
+Then start the development server:
+
+npm run dev
+
+
+👉 This script is defined in the package.json file (we’ll go over this in the next lecture).
+
+If you see the Next.js welcome page in your browser, congratulations! 🎉
+You’ve successfully set up your development environment and your first Next.js app is ready to build.

@@ -1,0 +1,104 @@
+We just touched upon rendering patterns in the previous lecture. Learning rendering patterns is important for nextjs. 
+
+Before we start lets learn about a few technical jargons we use through this course.
+
+1st is Hydration:
+It is the process of react adding interactivity to the static html pages.
+
+Full Hydration: React hydrates the entire page.
+
+Partial Hydration (Islands Architecture): Only some parts are hydrated (faster, less JS).
+
+Progressive Hydration: Different parts of the page hydrate at different times.
+
+Selective Hydration (React 18): React prioritizes hydrating visible/important components first.
+
+Edge: It refers to servers that are geographically distributed, closer to users, usually as part of a CDN (Content Delivery Network). Instead of all requests going to a central server (e.g., in the U.S.), Edge servers sit around the world (Europe, Asia, South America, etc.) and handle requests locally.
+
+🔹 1. Client-Side Rendering (CSR)
+
+Rendering happens entirely in the browser after JavaScript loads.
+
+Example: A pure React SPA created with create-react-app.
+
+Pros: Rich interactivity, reduced server load.
+
+Cons: Slower first paint (blank screen until JS loads), not SEO-friendly by default.
+
+🔹 2. Server-Side Rendering (SSR)
+
+The HTML is generated on the server at request time, then hydrated with JS.
+
+Example: Next.js getServerSideProps.
+
+Pros: SEO-friendly, faster initial page load.
+
+Cons: Higher server load, slightly slower navigation compared to CSR.
+
+🔹 3. Static Site Generation (SSG)
+
+Pages are pre-built at build time and served as static HTML.
+
+Example: Next.js getStaticProps.
+
+Pros: Extremely fast (served via CDN), scalable.
+
+Cons: Not good for frequently updated data unless paired with revalidation.
+
+🔹 4. Incremental Static Regeneration (ISR)
+
+A hybrid between SSG and SSR.
+
+Pages are statically generated but revalidated periodically.
+
+Example: Next.js revalidate option in getStaticProps.
+
+Pros: Fast + can keep data fresh.
+
+Cons: Cache invalidation can be tricky.
+
+🔹 5. Streaming & React Server Components (RSC)
+
+HTML is streamed to the browser in chunks (progressive rendering).
+
+React 18+ and Next.js App Router make use of this.
+
+Pros: Faster perceived load, better for large apps.
+
+Cons: Still evolving, adds complexity.
+
+🔹 6. Edge-Side Rendering (ESR)
+
+Rendering happens at CDN/edge servers close to the user.
+
+Example: Next.js with Vercel Edge Functions.
+
+Pros: Super low latency, global performance.
+
+Cons: Limited runtime (no full Node.js APIs at the edge).
+
+🔹 7. Progressive Hydration / Islands Architecture
+
+Only parts ("islands") of the page are hydrated with JS, instead of the whole page.
+
+Example: Astro framework, Next.js RSC with client components.
+
+Pros: Faster performance, less JS sent to client.
+
+Cons: Requires architectural planning.
+
+-----------------------------------------------
+
+So what makes NextJS Unique:
+
+You can mix and match patterns per route.
+
+Example: Homepage = SSG + ISR
+
+Product page = SSR
+
+Dashboard = CSR (fully client-rendered)
+
+Search = Edge Runtime
+
+This flexibility is why Next.js is considered a universal rendering framework.
