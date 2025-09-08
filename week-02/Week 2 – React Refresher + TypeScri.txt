@@ -1,0 +1,95 @@
+Week 2 – React Refresher + TypeScript for Next.js
+🔹 Part 1: React Refresher
+1. React Core Concepts
+
+What is React? (UI as a function of state)
+
+JSX basics (embedding variables, conditional rendering, lists with map)
+
+Components:
+
+Function components vs. class components (focus on functions)
+
+Props & children
+
+2. State & Events
+
+useState hook (basic state management)
+
+Handling events (onClick, onChange)
+
+Controlled components (form inputs)
+
+3. Lifecycle & Side Effects
+
+useEffect hook (fetching data, cleanup)
+
+Dependency arrays and avoiding infinite loops
+
+4. Component Composition
+
+Passing props down
+
+Lifting state up
+
+Parent/child communication
+
+5. Lists & Keys
+
+Rendering arrays with .map()
+
+Importance of key prop
+
+6. Context & Props Drilling
+
+Problem: deeply nested props
+
+Solution: useContext for global state
+
+7. Conditional Rendering
+
+Ternary operator and short-circuit rendering (&&, ||)
+
+🔹 Part 2: TypeScript for React
+
+(From my previous message — but taught after refresher)
+
+1. TypeScript Basics
+
+Type annotations (string, number, boolean)
+
+Arrays, tuples, objects
+
+any vs unknown vs never
+
+2. Props & Components
+
+Typing props in function components
+
+Typing children
+
+Typing event handlers (ChangeEvent, MouseEvent)
+
+3. Hooks
+
+Typing useState, useReducer
+
+Typing useRef
+
+Custom hooks with generics
+
+4. Next.js Specific
+
+Typing params and searchParams
+
+Typing API routes (NextApiRequest, NextApiResponse)
+
+Typing data fetching functions
+
+5. Advanced TypeScript Patterns
+
+Utility types (Partial, Pick, Omit)
+
+Discriminated unions
+
+Type guards & narrowing
