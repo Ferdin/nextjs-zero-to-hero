@@ -1,0 +1,116 @@
+There are a few special types in TypeScript that I would like to cover.
+
+We will cover them all in one component.
+
+export default function SpecialTypesExample() {
+
+}
+
+
+First, the any type.
+This type turns off type checking.
+
+let flexible: any = "Hello";
+
+You might encounter a red squiggly line under the any type. If you hover over it, you’ll see the reason:
+
+It says: Unexpected any. Specify a different type.
+
+ESLint is warning you because using any usually defeats the purpose of TypeScript’s type safety. In real projects, we normally avoid using any.
+
+But if you really need to use it, you can update the ESLint configuration:
+
+Open eslint.config.mjs — this file controls all ESLint checks in the project. So after ignores, add this:
+
+ rules: {
+      // ✅ Allow `any` explicitly
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+
+This will remove the warning.
+
+⚠️ Remember: This is not commonly done in real projects. You’ll only see any used in rare cases. I’m showing it here as part of TypeScript’s special types lesson.
+
+// You can even mutate it without worrying about type safety
+flexible = 42;
+flexible = { key: "value" };
+
+
+Let’s display it:
+
+<p><strong>any</strong>: {JSON.stringify(flexible)}</p>
+
+-------------------------------------------
+
+Next is the unknown type.
+This is similar to any, but with one big difference:
+TypeScript will force you to check the type before using it.
+
+let maybeValue: unknown = "TypeScript";
+
+You might notice a big squiggly line under maybeValue and unknown.
+
+This is ESLint suggesting that we should use const instead of let because this value is never reassigned.
+
+If we later reassign it, the warning will disappear automatically. Otherwise, you have two options:
+
+Change let to const if you never plan to reassign it.
+
+Update the ESLint config to temporarily disable the rule:
+
+"prefer-const": "off",
+
+After making this change, the warning will vanish.
+
+⚠️ Important: We will remove this rule override once the session is over, because the main purpose of linting is to avoid potential bugs in the project. Altering ESLint rules should only be done when absolutely necessary.
+
+// console.log(maybeValue.toUpperCase()); ❌ Error
+
+if (typeof maybeValue === "string") {
+  console.log(maybeValue.toUpperCase()); // ✅ Safe
+}
+
+
+Let’s see:
+
+<p><strong>unknown</strong>: {String(maybeValue)}</p>
+
+
+Now, the void type.
+This is usually used with functions that don’t return any value.
+
+function logMessage(msg: string): void {
+  console.log("Log:", msg);
+}
+logMessage("This function has no return value");
+
+
+We can check the log output.
+
+Next, null and undefined types.
+As the name suggests, these check if the variable is null or undefined.
+
+let maybeNull: string | null = null;
+let maybeUndefined: string | undefined = undefined;
+
+
+Let’s display them:
+
+<p><strong>null or not</strong>: {String(maybeNull)}</p>
+<p><strong>undefined or not</strong>: {String(maybeUndefined)}</p>
+
+
+Finally, the object type.
+This represents any non-primitive value.
+
+let person: object = { name: "Ferdin", role: "Developer" };
+// person.name ❌ Error (object is too generic)
+// Better approach: use a type or interface for structure
+
+
+Let’s display:
+
+<p><strong>object</strong>: {JSON.stringify(person)}</p>
+
+
+That’s it for special types — any, unknown, void, null, undefined, and object.

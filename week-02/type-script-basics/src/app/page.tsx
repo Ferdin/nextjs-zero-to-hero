@@ -1,5 +1,6 @@
 // import TypeSCriptBasics from "@/components/TypeScriptBasics";
 // import TypeScriptProps from "@/components/TypeScriptProps";
+import SpecialTypesExample from "@/components/SpecialTypeExamples";
 import Card from "@/components/TypeScriptChildren";
 
 export default function Home() {
@@ -18,6 +19,8 @@ export default function Home() {
       <Card title="Norbert">
         <p>This is some content inside the card.</p>
       </Card>
+
+      <SpecialTypesExample />
     </div>
   );
 }

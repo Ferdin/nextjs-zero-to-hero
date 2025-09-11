@@ -1,0 +1,59 @@
+TypeScript Basics for React – Arrays, Objects, and Tuples
+
+In this lecture, we’ll continue with TypeScript basics for React.
+
+Arrays in TypeScript
+
+Arrays can also use the type annotations we learned in the previous lecture:
+
+const fruits: string[] = ["Apple", "Orange", "Banana"];  
+const numberArray: number[] = [1, 2, 3, 4, 5];  
+
+Objects in TypeScript
+
+We can define an object type using type or interface.
+
+type User = {
+  id: number;
+  name: string;
+};
+
+
+Now, we can create an array of User objects:
+
+const users: User[] = [
+  { id: 1, name: "Ferdin" },
+  { id: 2, name: "Norbert" },
+];
+
+
+And render them in React:
+
+<ul>
+  {users.map((user) => (
+    <li key={user.id}>{user.name}</li>
+  ))}
+</ul>
+
+Tuples in TypeScript
+
+Tuples are arrays with a fixed length and defined types for each position.
+
+const person: [string, number] = ["Ferdin", 30];
+
+
+We can also use array destructuring to extract values:
+
+const [name, age] = person;
+
+return (
+  <div>
+    <h2>Tuple Example</h2>
+    <p>
+      Name: {name}, Age: {age}
+    </p>
+  </div>
+);
+
+
+✅ With this, we’ve covered arrays, objects, and tuples in TypeScript for React.

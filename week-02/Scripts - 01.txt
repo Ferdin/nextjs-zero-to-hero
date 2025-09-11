@@ -1,0 +1,85 @@
+What are components? 
+A component is basically a reusable piece of UI — like a button, a form, a header, or even an entire page. Instead of writing the same HTML again and again, we can create a component once and reuse it wherever we need.
+
+To begin with,
+
+Navigate to src and create a folder within it called components. Here is where we put all our components. 
+Let's create our first component. We call it TypeScriptBasics.tsx. This tsx file extension is for typescript files containing JSX expressions. 
+
+So what are JSX expressions?
+
+JSX is a syntax that lets us write HTML-like code inside JavaScript. But inside JSX, we can also run JavaScript expressions by wrapping them in curly braces { }.
+
+Let's go into the file and begin coding.
+
+What we are going to write is a functional component. It is just a JavaScript or TypeScript function that returns JSX. React used to have class component and still supports but doesn't recommend it so we are not going to cover that in this course. Here is how you can write a functional component. 
+export default function TypeScriptBasics() {}
+
+The export keyword will helps us to import this component into pages where we wish to import and use it. default keyword signifies that this is the main import function of this file.
+
+So the name of this file is TypeScriptBasics. Conventionality we give the same name for function as the file name. But you can give any name you want to.
+
+First we look at type annotations.
+The first annotation is string. So
+const name: string = "Ferdin";
+
+This constant name will strictly enforces string type for the data. If we try other values of different datatype. It will throw linting error. This linting error comes for the ESLint tool we configured when we created this project. 
+
+Next type annotion is number.
+This annotation consists of both floating point and whole numbers. There is no specific types for Integers or floats. All subsists in number type.
+const year: number= new Date().getFullYear();//2025
+
+Next type annotation is boolean.
+This type expects true or false value. 
+
+const isLoggedIn: boolean = true;
+
+After comes the main for the component - the return statment .
+
+return()
+
+In a React functional component, the return() statement tells React what UI to render on the screen.
+
+Whatever you put inside return() (usually JSX) becomes the component’s output.
+
+A component must return one root element (like a <div>), but inside that root you can have as many child elements as you want.
+
+return (
+
+<div> // Root element div
+	// We want to display the variables we defined earlier.
+// I am wrap the name in h2 tag. The we add expressions inside curly braces to display it. Otherwise it won't understand what we are trying to call
+<h2> Name - {name} </h2>
+<br/>
+<h4> Year - {year} </h2>
+// You can display boolean but a much better example is conditional rendering.
+<div>
+{
+// We can either use if/else or ternary operator. But here in this simple scenarios, ternary operator is the best option.
+<div>
+        {isLoggedIn ? (
+          <p>✅ You are logged in</p>
+        ) : (
+          <p>❌You are not logged in</p>
+        )}
+      </div>
+}
+</div>
+</div>
+
+)
+
+Now start your dev server by npm run dev.
+
+You’ll see:
+
+The name and year displayed.
+
+The message “✅ You are logged in” because isLoggedIn is set to true.
+
+If you change it to false, you’ll see:
+
+“❌ You are not logged in”
+
+This concept is called conditional rendering.
+
