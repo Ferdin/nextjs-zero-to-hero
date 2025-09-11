@@ -1,4 +1,4 @@
-TypeScript Basics for React – Arrays, Objects, and Tuples
+TypeScript – Arrays, Objects, and Tuples
 
 In this lecture, we’ll continue with TypeScript basics for React.
 
