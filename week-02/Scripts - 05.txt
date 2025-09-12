@@ -1,0 +1,5 @@
+What is useState?
+
+It’s a React hook for managing state inside a functional component.
+
+State is data that can change over time and cause the component to re-render when updated.

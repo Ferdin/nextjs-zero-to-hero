@@ -1,0 +1,66 @@
+🟢 How React Rendering Works
+1. React uses a Virtual DOM
+
+The DOM (Document Object Model) is the browser’s way of representing the UI.
+
+Updating the DOM directly is slow.
+
+React solves this by keeping a virtual copy of the DOM in memory → the Virtual DOM (VDOM).
+
+2. Rendering with State & Props
+
+When state or props change, React automatically re-runs the component function.
+
+This produces a new VDOM tree (a description of what the UI should look like now).
+
+function Counter() {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Count: {count}
+    </button>
+  );
+}
+
+
+➡️ Every time you click the button, setCount changes state.
+➡️ React re-runs Counter() → new VDOM created.
+
+3. Diffing (Reconciliation Algorithm)
+
+React compares the old VDOM with the new VDOM (this is called reconciliation).
+
+It finds the minimal changes needed.
+
+Example: if only the count text changed, React only updates that text in the real DOM, not the whole button.
+
+4. Updating the Real DOM
+
+After diffing, React patches the actual DOM with only the differences.
+
+That’s why the page doesn’t “refresh” — React is just surgically changing what’s needed.
+
+🟢 Why React Doesn’t Refresh
+
+In plain HTML/JS, changing data often means reloading the page or rebuilding elements manually.
+
+In React:
+
+No page reload (browser stays at the same state).
+
+Only the parts of the DOM that changed are updated.
+
+User interactions (like typing in an input) don’t reset unless that input itself changes in the VDOM.
+
+🟢 In Short
+
+Component re-runs when state/props change.
+
+React builds a new Virtual DOM.
+
+React compares old vs new VDOM (diffing).
+
+React updates only the changed parts in the real DOM.
+
+UI looks updated instantly — without refreshing the page.

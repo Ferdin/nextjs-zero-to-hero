@@ -10,11 +10,6 @@ export default function SpecialTypesExample() {
   if (typeof maybeValue === "string") {
     console.log(maybeValue.toUpperCase()); // ✅ Safe
   }
-
-  // never → function that never returns
-  function throwError(message: string): never {
-    throw new Error(message);
-  }
   // throwError("Something went wrong!");
 
   // void → function returns nothing

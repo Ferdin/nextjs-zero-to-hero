@@ -102,4 +102,7 @@ UPATED AGENDA
 1) TypeScript Basic Types, React Components & Conditional Rendering
 2) TypeScript – Arrays, Objects, and Tuples
 3) TypeScript – Special Types & Intro to ESLint
-4) 
+4) Props and Children in React (with TypeScript)
+5) useState hook - Intro to State management.
+6) How React Rendering Works?
+7) Why use key props in lists?

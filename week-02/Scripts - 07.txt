@@ -1,0 +1,46 @@
+Why key is Important in a Dynamically Generated List
+
+So, what does key do?
+
+key is a special prop that helps React identify which items have changed, been added, or removed.
+React uses it to optimize re-rendering by keeping track of elements.
+
+What happens if you don’t use keys?
+
+If a list can change order, add, or remove items, React may reuse DOM elements incorrectly, causing UI bugs.
+Remember the diffing algorithm we discussed in the previous lesson? That’s exactly what happens with dynamically created items.
+
+If an element is static (hard-coded, not generated in a loop), React already knows which element it is.
+
+// Static elements — no key needed
+<div>
+  <h1>Title</h1>
+  <p>Some text</p>
+</div>
+
+
+React always renders <h1> first, <p> second — positions never change.
+There’s no ambiguity, so key is unnecessary.
+
+🟢 Why lists/loops need keys
+
+In a loop (map()), multiple elements are created dynamically, and React cannot assume the order will stay the same.
+
+Example:
+
+I have the same components rendered in two sets — one without a key and one with a key.
+
+The first 3 items are the initial state of the list.
+
+The button is shared between both sets.
+
+If I dynamically add two new users (User 4 and User 5) and then remove Charlie Brown from the first list:
+
+In the list without keys, User 4 gets duplicated instead of correctly showing User 5.
+
+In the list with keys, this problem does not occur.
+
+Important:
+
+Do not use the index from the array as the key.
+Even indexes can cause the same issues as having no keys. Always use a unique ID from your data instead.

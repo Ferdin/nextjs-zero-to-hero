@@ -1,7 +1,12 @@
 // import TypeSCriptBasics from "@/components/TypeScriptBasics";
 // import TypeScriptProps from "@/components/TypeScriptProps";
-import SpecialTypesExample from "@/components/SpecialTypeExamples";
-import Card from "@/components/TypeScriptChildren";
+//import SpecialTypesExample from "@/components/SpecialTypeExamples";
+import CheckboxListWithoutKey from "@/components/KeyPropComponents/CheckBoxComponents";
+import Greetings from "@/components/StateExamples/Greetings";
+import State from "@/components/StateExamples/State";
+import TodoList from "@/components/StateExamples/TodoList";
+import UserProfile from "@/components/StateExamples/UserProfile";
+//import Card from "@/components/TypeScriptChildren";
 
 export default function Home() {
   //const year: number = new Date().getFullYear();
@@ -13,14 +18,19 @@ export default function Home() {
         placesVisited={["Lisbon", "Rome", "London"]}
         year={year}
       /> */}
-      <Card title="Ferdin">
+      {/* <Card title="Ferdin">
         <p>This is some content inside the card.</p>
       </Card>
       <Card title="Norbert">
         <p>This is some content inside the card.</p>
       </Card>
 
-      <SpecialTypesExample />
+      <SpecialTypesExample /> */}
+      <State />
+      <Greetings />
+      <UserProfile />
+      <TodoList />
+      <CheckboxListWithoutKey />
     </div>
   );
 }
