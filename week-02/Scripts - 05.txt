@@ -3,3 +3,70 @@ What is useState?
 It’s a React hook for managing state inside a functional component.
 
 State is data that can change over time and cause the component to re-render when updated.
+
+[state.tsx]
+
+Let's create a functional for demonstrating useState.
+
+export default function State() {
+
+}
+
+to initialize the useState hook, you need to import it from the React class.
+
+import { useState } from "react";
+
+Inside the component, let's start adding the state code.
+
+const [count, setCount] = useState<number>(0);
+
+As a React's rule, you should always use const instead of let for state management. 
+
+Why const is preferred?
+
+const would not allow you to mutate or change the value of the state within the current render. The only way to update is by state updater. More about rendering process in the next lecture.
+So here count is that state variable and setCount is the set updater function. And by convention, you should always prefix set with the variable name for the 
+state updater function.  We are destruction this array from the useState hook. Within the angle brackets, we specify the data annotation for the state. Here, we
+are using number type for the state.  The idea is to update the value of the counter based on incrementing or decrementing buttons. 
+
+return (
+    <div>
+      <h2>The count: {count}</h2>
+    </div>
+  );
+
+We will add two buttons to it for incrementing and decrementing the count value.
+
+<button onClick={() => setCount(count + 1)}>Increment</button>
+<button onClick={() => setCount(count - 1)}>Decrement</button>
+
+Why arrow functions?
+
+Notice we wrote:
+
+() => setCount(count + 1)
+
+
+instead of just:
+
+setCount(count + 1)
+
+
+That’s because:
+
+Writing setCount(count + 1) directly would run immediately when the component renders.
+
+Wrapping it in an arrow function () => … ensures it only runs when the button is clicked.
+
+In JavaScript, functions without parentheses are passed as references. With parentheses, they are executed immediately.
+
+Go to the browser → try clicking the buttons.
+✅ You’ll see the count increments and decrements properly.
+
+But notice this:
+
+Increase the count → refresh the page → the count resets back to 0.
+
+That’s because state only persists between renders, not across full page reloads.
+
+👉 State is not local storage. It’s just temporary data kept by React to manage re-renders.
