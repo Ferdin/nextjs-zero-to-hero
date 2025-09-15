@@ -1,0 +1,80 @@
+Hi this lecture you will learn how to handle events in React.
+
+In React, events are handled via JSX:
+
+Use camelCase for event names (onClick, onChange, onSubmit, etc.).
+
+Assign a function reference instead of a string.
+
+Lets revisit one of the useState example we learned in one of the past lectures.
+
+Duplicate the component file and paste it into the same folder. 
+
+Create two arrow functions one for decrementing and another for incrementing. We pass the same come code within. Now we pass the reference instead of the function call itself.
+
+Now coming to main topic for this lecture i.e. passing event handlers as props.
+
+event handlers are nothing but functions that execute certain events. 
+
+So go ahead and create a file called ClickEventComponents. We will create two components within this file. This is permissible but not by convention. Ideally
+we would create individual files for individual components but for the sake of demonstration I am add two components in this file.
+
+The first compoents is called button. The idea is to alert movie name while we click the button. So the first component receives two props. One for the event handler.
+Another for children. within the return statement we return a button with onClick event handler that accepts the onClick prop reference. and inside we will pass the children
+prop.
+
+Btw, this function is not the default fucntion of this file hence we don't put default or export because we are not exporting the function to another file. We will use this within
+the same file.
+
+function Button({ onClick, children }: ButtonProps) {
+  return <button onClick={onClick}>{children}</button>;
+}
+
+Let's define prop types for this component. 
+
+type ButtonProps = {
+  onClick: () => void;
+  children: React.ReactNode;
+};
+
+onClick is of type void function so this is how we assign the type and for children - React.ReactNode.
+
+Add this to the props as it's type.
+
+In the same file, let's create another compoent called ClickEventComponents. This component handles the click event and alerts the movie name and this is the default export
+of this file so 
+
+export default function ClickEventComponent({
+  movieName,
+}){}
+
+Let' create the prop type for this component. Since it is only taking a string. 
+
+type ClickEventComponentProps = {
+  movieName: string;
+};
+
+Add this to function:
+
+export default function ClickEventComponent({
+  movieName,
+}: ClickEventComponentProps) {}
+
+Next, let's create a function within this component that handles alerting the movie name. 
+
+  const handlePlayClick = () => {
+    alert(`Playing ${movieName}`);
+  };
+
+  In the return statement,  we will add the Button component. The prop is going to be the function we just defined that is handlePlayClick. Inside we pass it's children.
+  If you put double quotes, you will see an lint suggestion to use HTML entity instead of typing the double quote symbol. This will be rendered as double quotes when it comes 
+  to the browser. TypeScript ESLint recommends this to avoid parsing issue. 
+
+  [Show the list of HTML Entities]
+
+We then pass the movieName withing curly braces. 
+<Button onClick={handlePlayClick}>Play &quot;{movieName}&quot;</Button> 
+
+Let's go to the main page in app router and add this component it. Let's go the browser. You will see a rendering error "Event handlers cannot be passed to Client Component props.". 
+This is because whereever you need interactivity, you would need to convert that component to a client component. So, coming back to our component. Add the "use client"
+dervative at the top. Save it and go to browser. You will see the error has gone and when you click the button, the alerts the movie name.

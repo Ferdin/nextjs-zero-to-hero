@@ -2,21 +2,21 @@ Week 2 – React Refresher + TypeScript for Next.js
 🔹 Part 1: React Refresher
 1. React Core Concepts
 
-What is React? (UI as a function of state)
+What is React? (UI as a function of state) ✅
 
-JSX basics (embedding variables, conditional rendering, lists with map)
+JSX basics (embedding variables, conditional rendering, lists with map)✅
 
 Components:
 
-Function components vs. class components (focus on functions)
+Functional Components ✅
 
-Props & children
+Props & children ✅
 
 2. State & Events
 
-useState hook (basic state management)
+useState hook (basic state management) ✅
 
-Handling events (onClick, onChange)
+Handling events (onClick, onChange) ✅
 
 Controlled components (form inputs)
 
@@ -56,23 +56,23 @@ Ternary operator and short-circuit rendering (&&, ||)
 
 1. TypeScript Basics
 
-Type annotations (string, number, boolean)
+Type annotations (string, number, boolean) ✅
 
-Arrays, tuples, objects
+Arrays, tuples, objects ✅
 
-any vs unknown vs never
+any vs unknown vs never ✅
 
-2. Props & Components
+2. Props & Components ✅
 
-Typing props in function components
+Typing props in function components ✅
 
-Typing children
+Typing children ✅
 
 Typing event handlers (ChangeEvent, MouseEvent)
 
 3. Hooks
 
-Typing useState, useReducer
+Typing useState, useReducers
 
 Typing useRef
 
@@ -106,3 +106,7 @@ UPATED AGENDA
 5) useState hook - Intro to State management.
 6) How React Rendering Works?
 7) Why use key props in lists?
+8) Handling Events - Passing event handlers as props.
+9) Typing event handlers (ChangeEvent, MouseEvent)
+10) Controlled Component
+

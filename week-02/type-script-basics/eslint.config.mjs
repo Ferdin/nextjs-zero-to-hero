@@ -21,8 +21,8 @@ const eslintConfig = [
     ],
     rules: {
       // ✅ Allow `any` explicitly
-      "@typescript-eslint/no-explicit-any": "off",
-      "prefer-const": "off",
+      // "@typescript-eslint/no-explicit-any": "off",
+      // "prefer-const": "off",
     },
   },
 ];
