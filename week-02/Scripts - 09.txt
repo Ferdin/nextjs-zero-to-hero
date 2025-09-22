@@ -1,0 +1,14 @@
+In this lecture, you are going learn about Typing Event handlers.
+
+Cheatsheet
+
+| Event Type   | JSX Attribute | TS Type                  |
+| ------------ | ------------- | ------------------------ |
+| Click        | `onClick`     | `React.MouseEvent<T>`    |
+| Change/Input | `onChange`    | `React.ChangeEvent<T>`   |
+| Submit       | `onSubmit`    | `React.FormEvent<T>`     |
+| Focus        | `onFocus`     | `React.FocusEvent<T>`    |
+| Blur         | `onBlur`      | `React.FocusEvent<T>`    |
+| Keyboard     | `onKeyDown`   | `React.KeyboardEvent<T>` |
+
+
