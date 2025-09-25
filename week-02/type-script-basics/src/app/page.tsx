@@ -8,7 +8,7 @@
 // import TodoList from "@/components/StateExamples/TodoList";
 // import UserProfile from "@/components/StateExamples/UserProfile";
 //import Card from "@/components/TypeScriptChildren";
-// import TypingEventHandlers from "@/components/EventHandlingComponents/TypingEventHandlers";
+import TypingEventHandlers from "@/components/EventHandlingComponents/TypingEventHandlers";
 
 import ControlledComponent from "@/components/EventHandlingComponents/ControlledComponent";
 
@@ -36,8 +36,8 @@ export default function Home() {
       <TodoList />
       <CheckboxListWithoutKey />
       <ClickEventComponent movieName="Titanic" /> */}
-      {/* <TypingEventHandlers /> */}
-      <ControlledComponent />
+      <TypingEventHandlers />
+      {/* <ControlledComponent /> */}
     </div>
   );
 }

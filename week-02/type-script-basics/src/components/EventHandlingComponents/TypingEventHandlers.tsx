@@ -7,6 +7,7 @@ export default function TypingEventHandlers() {
   const [text, setText] = useState<string>("");
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // console.log(e.target.value); Demonstrate this without the type for this event handler.
     console.log("Button clicked!");
     console.log(e.currentTarget);
   };
@@ -25,7 +26,11 @@ export default function TypingEventHandlers() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    const data = new FormData(e.currentTarget);
+    // for (const [key, value] of data.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
+    console.log([...data.entries()]);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -49,13 +54,17 @@ export default function TypingEventHandlers() {
       <span>{value}</span>
       <br />
       <form onSubmit={handleSubmit}>
+        <input type="text" name="fname" />
+        <input type="text" name="lname" />
         <button type="submit">Submit</button>
       </form>
       <br />
       <input
         type="text"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setText(e.target.value)
+        }
         onKeyDown={handleKeyDown}
       />
     </>

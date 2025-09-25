@@ -11,4 +11,169 @@ Cheatsheet
 | Blur         | `onBlur`      | `React.FocusEvent<T>`    |
 | Keyboard     | `onKeyDown`   | `React.KeyboardEvent<T>` |
 
+We’re going to apply types for event handlers such as click, change, submit, focus, and key press (or key down).
 
+The main benefit of enforcing type safety for event handlers is that if you mistakenly try to use a property that doesn’t exist on, say, a MouseEvent, TypeScript will catch it before runtime.
+
+Let’s start with the click event. We’ll create a button that has an onClick event handler.
+
+The onClick property is where we pass in the function that should execute when the button is clicked.
+
+<button onClick={handleClick}>Click Me</button>
+
+“When the user clicks on the button, we want to log a message: ‘Button clicked.’
+
+For mouse events in React, we use the type React.MouseEvent<HTMLButtonElement>.
+
+Here’s an example:**
+
+const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // console.log(e.target.value);  // Try this without the type first to see the difference.
+  console.log("Button clicked!");
+  console.log(e.currentTarget);
+};
+
+<button onClick={handleClick}>Click Me</button>
+
+
+Breaking this down:
+
+React comes from the React type definitions (@types/react).
+This package provides type information for React’s components, hooks, and utilities. You can find it in node_modules/@types/react.
+
+MouseEvent is a generic type inside React’s type definitions.
+It represents mouse-related events such as onClick, onMouseEnter, and onMouseLeave.
+
+<HTMLButtonElement> is the generic parameter you pass to React.MouseEvent to specify which element triggered the event.
+So when we write React.MouseEvent<HTMLButtonElement>, we’re saying:
+“This mouse event comes from a button element.”
+
+-----------------------------------------------------------------------
+
+Next, let’s look at onChange. For this, we’ll use a text input field. When we change the value in the input, 
+we want to execute an action. In this example, we’ll use state management to record the updated value and display 
+it inside a <span>
+
+ const [value, setValue] = useState<string>("");
+
+Here we use ChangeEvent, which represents change-related events. 
+The generic parameter is HTMLInputElement because we’re working with an input field to capture the text value.
+
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+We can display the value like this:
+
+<span>{value}</span>
+
+
+We can also apply the same change event to a <textarea> element:
+
+<textarea onChange={handleChangeText}></textarea>
+
+
+And the event handler would look like this:
+
+const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  setValue(e.target.value);
+};
+
+
+Here, we’re using React.ChangeEvent<HTMLTextAreaElement> because the event originates from a textarea instead of an input field.
+
+Next, let’s look at onFocus. This event is fired when you click inside the text area.
+
+We can add it to our <textarea> like this:**
+
+<textarea 
+  onChange={handleChangeText} 
+  onFocus={handleOnFocus}>
+</textarea>
+
+
+Now, let’s create the function for it:
+
+const handleOnFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+  console.log(`${e.currentTarget.value} is focused`);
+};
+
+
+Here, we use FocusEvent and attach it to HTMLTextAreaElement since the event comes from a textarea.
+
+Now, open the console and test it—when you focus on the textarea, you’ll see the logged message.
+
+Next, let’s look at FormEvent.
+
+We’ll start by creating a form inside the return statement:**
+
+<form onSubmit={handleSubmit}>
+  <input type="text" name="fname" />
+  <input type="text" name="lname" />
+  <button type="submit">Submit</button>
+</form>
+
+
+Now, let’s create the handleSubmit function. Notice that we use the React.FormEvent<HTMLFormElement> type for the event:
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const data = new FormData(e.currentTarget);
+
+  for (const [key, value] of data.entries()) {
+    // data.entries() contains all the entries in the form,
+    // such as text fields, select inputs, etc.
+    console.log(`${key}: ${value}`);
+  }
+};
+
+
+Here, FormEvent represents events fired by forms, and HTMLFormElement specifies that this event comes from a <form>. Using this type ensures TypeScript knows exactly what properties and methods are available on e.currentTarget.
+
+Finally, let’s look at onKeyDown.
+
+This event is fired whenever a key is pressed.
+
+We’ll create an input field outside of the form:**
+
+<input
+  type="text"
+  value={text}
+  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+    setText(e.target.value)
+  }
+  onKeyDown={handleKeyDown}
+/>
+
+
+Notice how we added the onKeyDown property to the input and passed it a function reference: handleKeyDown.
+
+The reason we don’t write all the logic directly inside the prop is because:
+
+The code could get larger and messy.
+
+By convention, we pass a function reference to event handlers if no extra parameters are required.
+
+Now let’s define the handler:
+
+const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  if (e.key === "Enter") {
+    alert(`You typed: ${text}`);
+  }
+
+  if (e.key === "Escape") {
+    setText("");
+  }
+};
+
+
+Here, we’re using React.KeyboardEvent<HTMLInputElement>, which represents a keyboard event specifically coming from an <input> element.
+
+If the user presses Enter, we show an alert with the current text.
+
+If the user presses Escape, we clear the input field.
+
+
++++++JMJ+++++
+
+One Day I May
