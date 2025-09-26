@@ -1,0 +1,77 @@
+In this lecture, you are going to learn about Controlled Component.
+
+What is controlled component?
+
+A controlled component is an input element (like <input>, <textarea>, <select>) whose value is controlled by React state.
+
+That means React is the source of truth for the input value — not the DOM.
+
+Without React, the browser controlls the input value.
+
+Downside of browser controlling the input value, there by the business logic, is many.
+1) It will be hareder to validate, 
+2) UI and React Logic can go out of sync. 
+
+So we use controlled component.
+
+It is simple, you just use need to states to manage input values.
+
+So in this example,
+
+We add a simple input field to the component. 
+
+<input type="text"/>
+
+and then we create a state to manage the value of this input.
+
+const [name, setName] = useState<string>(""); this is called the source of truth. Which means this will manage the value fo the input.
+
+update the value with this "name"
+
+<input type="text" value={name}/>
+
+Let's create a function that sets and updates the value on change.
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value); // update React state whenever input changes
+  };
+
+add the onChange event handler.
+
+    <input type="text" value={name} onChange={handleChange} />
+
+Now this makes React state the source of truth not the dom.
+
+Let's display the state value on change. under the input, let's add a paragraph with name state. Now when we change the value in the input you will see it directly effects the output.
+
+Here is another example using the select input.
+
+Add select input with some fruit names as options.
+
+<select>
+        <option value="Apple">Apple</option>
+        <option value="Banana">Banana</option>
+        <option value="Cherry">Cherry</option>
+      </select>
+
+Add state to manage the value. We will give an initial value to the state. This is will be value by default when the components renders for the first time.
+
+const [fruit, setFruit] = useState<string>("Apple");
+
+Let's copy the handleChange function for the select element. And change the name of the function, say, handleSelectChange. And the generic parameter to HTMLSelectElement . And state function 
+to setFruit.
+
+Pass the value and reference of this function to the select input tag. 
+
+<select value={fruit} onChange={handleSelectChange}>
+
+Now we display the value of select input in a paragraph. When user changes the value, the state updates.
+
+<p>And my favorite fruit is {fruit}</p>
+
+So that concludes how we can create a controlled component.
+
+
+
+
+

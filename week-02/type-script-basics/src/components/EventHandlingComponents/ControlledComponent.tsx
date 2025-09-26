@@ -10,11 +10,15 @@ export default function ControlledComponent() {
     setName(e.target.value); // update React state whenever input changes
   };
 
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFruit(e.target.value);
+  };
+
   return (
     <div>
       <input type="text" value={name} onChange={handleChange} />
       <br />
-      <select value={fruit} onChange={(e) => setFruit(e.target.value)}>
+      <select value={fruit} onChange={handleSelectChange}>
         <option value="Apple">Apple</option>
         <option value="Banana">Banana</option>
         <option value="Cherry">Cherry</option>
